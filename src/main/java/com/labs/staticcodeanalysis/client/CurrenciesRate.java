@@ -3,6 +3,7 @@ package com.labs.staticcodeanalysis.client;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.labs.staticcodeanalysis.domain.CurrencyEnum;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;

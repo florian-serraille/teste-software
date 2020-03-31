@@ -1,6 +1,6 @@
 package com.labs.staticcodeanalysis.api;
 
-import com.labs.staticcodeanalysis.service.CurrencyConverterService;
+import com.labs.staticcodeanalysis.service.Currency_converter_service;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +13,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = CurrencyConverterController.class)
-class CurrencyConverterControllerTest {
+class currencyConverterControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
     
     @MockBean
-    private CurrencyConverterService currencyConverterService;
+    private Currency_converter_service currencyConverterService;
     
     @Test
     void convertFromTo() throws Exception {

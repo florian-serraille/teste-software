@@ -2,7 +2,7 @@ package com.labs.staticcodeanalysis.api;
 
 import com.labs.staticcodeanalysis.domain.CurrencyApiResponse;
 import com.labs.staticcodeanalysis.domain.CurrencyEnum;
-import com.labs.staticcodeanalysis.service.CurrencyConverterService;
+import com.labs.staticcodeanalysis.service.Currency_converter_service;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +15,9 @@ import java.math.BigDecimal;
 @RestController
 public class CurrencyConverterController {
 
-    private final CurrencyConverterService currencyConverterService;
+    private final Currency_converter_service currencyConverterService;
 
-    public CurrencyConverterController(CurrencyConverterService currencyConverterService) {
+    public CurrencyConverterController(Currency_converter_service currencyConverterService) {
         this.currencyConverterService = currencyConverterService;
     }
 

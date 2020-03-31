@@ -7,19 +7,25 @@ import com.labs.staticcodeanalysis.domain.CurrencyEnum;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.concurrent.ExecutionException;
 
 @Service
-public class CurrencyConverterService {
+public class Currency_converter_service {
     
-    private final ApiCurrencyConverterClient converterClient;
+    public ApiCurrencyConverterClient converterClient;
 
-    public CurrencyConverterService(ApiCurrencyConverterClient converterClient) {
+    public Currency_converter_service(ApiCurrencyConverterClient converterClient) {
         this.converterClient = converterClient;
     }
 
     public CurrencyApiResponse convertFromTo(CurrencyEnum origin, CurrencyEnum target, BigDecimal valueOrigin){
-        
-        CurrenciesRate values = converterClient.getCurrenciesRateFor(origin);
+
+        CurrenciesRate values;
+        try {   
+            values = converterClient.getCurrenciesRateFor(origin);
+        } catch (Exception e){
+            values = new CurrenciesRate();
+        }
         BigDecimal rateTarget = retrieveCurrencyRateTarget(values, target);
         BigDecimal valueTarget = calculateValueTarget(rateTarget, valueOrigin);
         
